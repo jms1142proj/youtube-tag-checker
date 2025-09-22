@@ -1,0 +1,23 @@
+# Node modules
+frontend/node_modules/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Build outputs
+frontend/build/
+backend/target/
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# API keys and sensitive data
+backend/src/main/resources/application-local.properties
+*.log
