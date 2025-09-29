@@ -6,54 +6,54 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(null);
 
-   const checkTags = () => {
+  const checkTags = () => {
     setLoading(true)
     fetch("https://youtube-tag-checker-production.up.railway.app/api/youtube/analyze", {
       method: "POST",
       headers: {
-      "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({ tags: tags })
-    }).then((response) =>{
+    }).then((response) => {
       return response.json();
     }).then((data) => {
-  setResults(data);
-  setLoading(false);
-  }).catch((error) => {
-    console.error('Error:', error);
-    setLoading(false);
-  });; 
+      setResults(data);
+      setLoading(false);
+    }).catch((error) => {
+      console.error('Error:', error);
+      setLoading(false);
+    });;
   };
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
   const handleSubmit = (event) => {
     setTags([...tags, inputValue]);
-    setInputValue('');  
+    setInputValue('');
   }
   return (
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <input name="myInput" value = {inputValue} onChange={handleChange}/>
+      <input name="myInput" value={inputValue} onChange={handleChange} />
       <p>Current input: {inputValue}</p>
       <p>Tags: {tags.join(', ')}</p>
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={checkTags}>checkTags</button>
 
       {loading && <p>Checking tags...</p>}
-        {results && (
-          <div>
-            <h3>Results:</h3>
-              {results.map((result, index) => (
-                <div key={index}>
-                <p>Tag: {result.tagName}</p>
-                <p>Score: {result.tagScore}</p>
-                <p>Total Results: {result.totalResults}</p>
-                </div>
-              ))}
-          </div>
-    )}
+      {results && (
+        <div>
+          <h3>Results:</h3>
+          {results.map((result, index) => (
+            <div key={index}>
+              <p>Tag: {result.tagName}</p>
+              <p>Score: {result.tagScore}</p>
+              <p>Total Results: {result.totalResults}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-    
+
   );
 }
 
