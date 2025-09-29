@@ -8,7 +8,7 @@ function App() {
 
    const checkTags = () => {
     setLoading(true)
-    fetch("youtube-tag-checker-production.up.railway.app", {
+    fetch("https://youtube-tag-checker-production.up.railway.app/api/youtube/analyze", {
       method: "POST",
       headers: {
       "Content-Type": "application/json"
