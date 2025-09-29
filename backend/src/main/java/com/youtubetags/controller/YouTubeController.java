@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 import com.youtubetags.model.TagAnalysis;
+import com.youtubetags.model.TagAnalysisHistory;
 import com.youtubetags.service.YouTubeAnalysisService;
 
 @RestController
@@ -35,5 +36,10 @@ public class YouTubeController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/history")
+    public List<TagAnalysisHistory> getAnalysisHistory() {
+        return youtubeAnalysisService.getAllHistory();
     }
 }

@@ -8,7 +8,7 @@ function App() {
 
    const checkTags = () => {
     setLoading(true)
-    fetch("http://localhost:8080/api/youtube/analyze", {
+    fetch("youtube-tag-checker-production.up.railway.app", {
       method: "POST",
       headers: {
       "Content-Type": "application/json"

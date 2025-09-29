@@ -65,4 +65,8 @@ public class YouTubeAnalysisService {
         }
         return results;
     }
+
+    public List<TagAnalysisHistory> getAllHistory() {
+        return tagAnalysisRepository.findAll();
+    }
 }
