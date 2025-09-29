@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOrigins(
                         "http://localhost:3000",
-                        "https://youtube-tag-checker-git-main-jms1142projs-projects.vercel.app")
+                        "https://youtube-tag-checker-git-main-jms1142projs-projects.vercel.app",
+                        "https://youtube-tag-checker-9cax.vercel.app")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*");
     }
