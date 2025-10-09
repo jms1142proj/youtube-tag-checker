@@ -91,8 +91,8 @@ function App() {
         <div className="results-grid">
       {results.map((result, index) => (
         <div key = {index} className={`result-card ${getCompetitionLevel(result.tagScore)}-competition`}>
-          <h3>Tag: {result.tagName}</h3>
-          <p>Score: <span className="score">{result.tagScore}</span></p>
+          <h3>{result.tagName}</h3>
+          <p>Score: <span className="score">{Number(result.tagScore).toFixed(1)}</span></p>
           <p>Total Results: {result.totalResults.toLocaleString()}</p>
         </div>
       ))}
