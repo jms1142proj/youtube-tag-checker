@@ -1,13 +1,269 @@
-body {
+*, *::before, *::after{
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.6;
+  background-color: var(--color-gray-50);
+}
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;   /* Darker blue - hover states */
+  --color-primary-light: #dbeafe;
+  --color-youtube:#CD201F;
+
+  --color-success: #10b981;
+  --color-success-light: #c1ed98;
+
+  --color-warning: #f59e0b;
+  --color-warning-light: #fef3c7;
+
+  --color-danger: #ef4444;
+  --color-danger-light: #fee2e2;
+
+
+  --color-gray-50: #f8fafc;   /* Lightest - page background */
+  --color-gray-100: #f1f5f9;  /* Very light - card backgrounds */
+  --color-gray-200: #e2e8f0;  /* Light - borders */
+  --color-gray-300: #cbd5e1;  /* Medium-light - disabled states */
+  --color-gray-600: #475569;  /* Medium-dark - secondary text */
+  --color-gray-900: #1e293b;  /* Darkest - primary text */
+  --color-white: #ffffff;     /* Pure white */
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  
+
+
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+
+  /*weights*/
+
+  --font-normal: 400;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /*line heights*/
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.8;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+}
+.button-group{
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.btn{
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  font-family: var(--font-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.btn-primary{
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover{
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active{
+  transform: translateY(0);
+}
+
+.btn-secondary{
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  border: 2px solid var(--color-gray-200);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-300);
+}
+
+.link {
+  color: var(--color-primary);
+}
+.border{
+  border-color: var(--color-primary);
+}
+
+.input-label{
+  display: block;
+  font-size: var(--text-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-2);
+}
+
+.tag-input{
+  width: 100%;
+  padding: var(--space-3);
+  font-size: var(--text-base);
+  font-family: var(--font-primary);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius);
+  transition: var(--transition-base);
+}
+
+.tag-input:focus{
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.input-helper{
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  color: var(--color-gray-600);
+  margin-top: var(--space-2);
+}
+
+.result-card.low-competition {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+}
+
+
+.result-card.medium-competition {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.result-card.high-competition {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+
+.result-card.high-competition .score { /* Space means "score inside tag-card" */
+  color: var(--color-success);
+  font-weight: var(--font-semibold);
+}
+
+.result-card.medium-competition .score{
+  color: var(--color-warning);
+  font-weight: var(--font-semibold);
+}
+
+.result-card.low-competition .score{
+  color: var(--color-danger);
+  font-weight: var(--font-semibold);
+}
+
+.results-section {
+  margin-top: var(--space-6);
+}
+
+.results-section h2 {
+  font-family: var(--font-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Results Grid Layout */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+h1 {
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+}
+
+.results-section {
+  margin-top: var(--space-6); 
+}
+
+h2.results-heading {
+  font-size: var(--text-lg); 
+  font-family: var(--font-primary);
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-4); /* 12px vertical, 24px horizontal */
+  border-radius: var(--border-radius); /* 8px */
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-card {
+  background-color: var(--color-white);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-base);
+}
+
+.result-card:hover{
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.result-card h3 {
+  margin-bottom: var();
+  font-size: 20px;
+}
+
+.result-card p {
+  margin-bottom: 8px;
+  color: #475569;
 }
