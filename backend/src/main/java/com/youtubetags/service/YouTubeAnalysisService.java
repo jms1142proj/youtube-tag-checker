@@ -49,7 +49,7 @@ public class YouTubeAnalysisService {
                 Integer totalResults = response.getPageInfo().getTotalResults();
 
                 // Calculate score using your formula
-                double score = 100.0 / Math.log10(totalResults + 1);
+                double score = Math.log10(totalResults + 1) * 10;
                 TagAnalysis tagAnalysis = new TagAnalysis(tag, totalResults, returnedVideos, score);
                 results.add(tagAnalysis);
                 TagAnalysisHistory tagAnalysisHistory = new TagAnalysisHistory(tagAnalysis);
