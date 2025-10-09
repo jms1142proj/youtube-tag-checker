@@ -207,10 +207,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-4);
 }
-h1 {
-  color: var(--color-primary);
-  font-family: var(--font-primary);
-}
+
 
 .results-section {
   margin-top: var(--space-6); 
@@ -241,6 +238,25 @@ h2.results-heading {
   margin: 0 auto;
 }
 
+.container h1 {
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  justify-content: center;
+}
+.container span {
+  color: var(--color-youtube);
+  font-family: var(--font-primary);
+}
+
+.youtube{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-youtube);
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
 .result-card {
   background-color: var(--color-white);
   font-family: var(--font-primary);

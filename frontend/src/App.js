@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Introduction } from "./components/intro";
+import { Youtube } from 'lucide-react';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
@@ -64,7 +65,8 @@ function App() {
   return (
 
     <div className= "container">
-      <h1 className="color-primary"><span className="color-youtube">Youtube</span> Tag Checker</h1>
+      <Youtube className="youtube" />
+      <h1><span>Youtube</span> Tag Checker</h1>
       <div className="input-section">
         <label htmlFor="tagInput" className="input-label">Input Tags</label>
         <input 
