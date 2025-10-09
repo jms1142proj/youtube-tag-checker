@@ -160,7 +160,7 @@ body {
   margin-top: var(--space-2);
 }
 
-.result-card.low-competition {
+.result-card.high-competition {
   background-color: var(--color-danger-light);
   color: var(--color-danger);
 }
@@ -171,13 +171,13 @@ body {
   color: var(--color-warning);
 }
 
-.result-card.high-competition {
+.result-card.low-competition {
   background-color: var(--color-success-light);
   color: var(--color-success);
 }
 
 
-.result-card.high-competition .score { /* Space means "score inside tag-card" */
+.result-card.low-competition .score { /* Space means "score inside tag-card" */
   color: var(--color-success);
   font-weight: var(--font-semibold);
 }
@@ -187,7 +187,7 @@ body {
   font-weight: var(--font-semibold);
 }
 
-.result-card.low-competition .score{
+.result-card.high-competition .score{
   color: var(--color-danger);
   font-weight: var(--font-semibold);
 }
