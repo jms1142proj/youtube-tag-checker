@@ -12,6 +12,3 @@ A fullstack application for analyzing YouTube tag competition.
 - Backend: Spring Boot (Java)
 - API: YouTube Data API v3
 
-## Setup
-1. Backend: `cd backend && mvn spring-boot:run`
-2. Frontend: `cd frontend && npm start`
