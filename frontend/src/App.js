@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { Introduction } from "./components/intro";
 import { Youtube } from 'lucide-react';
 
 function App() {
@@ -51,10 +50,11 @@ function App() {
     setInputValue(event.target.value);
   };
   const handleSubmit = (event) => {
-    if(inputValue.length > 0)
+    const newTags = inputValue.split(', ')
+    if(newTags.length > 0)
     {
-    setTags([...tags, inputValue]);
-    setInputValue([]);
+      setTags([...tags, ...newTags]);
+      setInputValue('');
     }
   }
   const getCompetitionLevel = (score) =>{
@@ -65,8 +65,14 @@ function App() {
   return (
 
     <div className= "container">
-      <Youtube className="youtube" />
-      <h1><span>Youtube</span> Tag Checker</h1>
+      <div className="header">
+        <Youtube className="youtube"/>
+        <h1><span>Youtube</span> Tag Checker</h1>
+      </div>
+      <p>YouTube Tags are essential features for Youtube's algorithm to show your video to people who search using broad search terms.
+          Without these tags, your videos will almost never end up in the search algoritm. Optimizing these tags will allow users to find tags of their niche
+          with low ammounts of competition so their video will have a bigger chance of being seen.
+        </p>
       <div className="input-section">
         <label htmlFor="tagInput" className="input-label">Input Tags</label>
         <input 
@@ -80,7 +86,7 @@ function App() {
         <p className="input-helper">Tags: {tags.join(', ')}</p>
       </div>
       <div className="button-group">
-        <button onClick={handleSubmit} className="btn btn-primary">Add Tag(s)</button>
+        <button onClick={handleSubmit} className="btn btn-primary">Add Tag</button>
         <button onClick={checkTags} className="btn btn-primary">Analyze Tags</button>
         <button onClick={checkHistory} className="btn btn-primary">View History</button>
       </div>
@@ -115,7 +121,7 @@ function App() {
             </div>
               ))}
             </h2>
-            </div>
+          </div>
         )}
       </div>
     </div>

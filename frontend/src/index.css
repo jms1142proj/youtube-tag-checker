@@ -81,6 +81,7 @@ body {
   display: flex;
   gap: var(--space-3);
   margin-top: var(--space-4);
+  justify-content: center;
 }
 .btn{
   padding: var(--space-3) var(--space-4);
@@ -208,6 +209,15 @@ body {
   gap: var(--space-4);
 }
 
+.history-section {
+  margin-top: var(--space-6);
+}
+
+.history-section h2 {
+  font-size: var(--text-lg); 
+  font-family: var(--font-primary);
+}
+
 
 .results-section {
   margin-top: var(--space-6); 
@@ -247,14 +257,28 @@ h2.results-heading {
   color: var(--color-youtube);
   font-family: var(--font-primary);
 }
+.container p {
+  color: var(--color-gray-600);
+  font-family: var(--font-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
 
-.youtube{
+.header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: var(--space-6);
+}
+
+.youtube{
   color: var(--color-youtube);
-  width: 24px;
-  height: 24px;
+  width: 64px;
+  height: 64px;
   stroke-width: 2;
 }
 .result-card {
